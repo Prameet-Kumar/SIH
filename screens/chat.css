@@ -1,0 +1,220 @@
+/* Reset some default browser styles */
+@import url('https://fonts.googleapis.com/css2?family=Proza+Libre&family=Roboto+Slab&family=Roboto:wght@300&display=swap');
+body, h1, h2, p, ul, li {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+/* *{
+    color:white;
+} */
+
+/* Apply background color to the body */
+body {
+    background-color: red;
+}
+
+/* Style the header */
+.header {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 14vh;
+    background-color: rgba(255, 255, 255, 0.45);
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+  
+    backdrop-filter: blur(15px);
+}
+#chatnavs{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+
+}
+
+#chatnavs li{
+    list-style: none;
+    margin-right: 2rem;
+    cursor: pointer;
+    transition: all 900ms;
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+#chatnavs li a:link{
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+#chatnavs li a:visited{
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 70%;
+    
+}
+.logo h1{
+    width: 70%;
+    
+
+}
+.chatLogoImg{
+    width: 15%;
+    height: 100%;
+}
+.jini{
+    color: #007bff;
+    font-weight: 600;
+    font-size: 2rem;
+    font-family: 'Proza Libre', sans-serif;
+    margin-left: 4px;
+}
+/* Style the logo */
+
+
+
+
+/* Style the chat container */
+.chat-container {
+    width: 90%;
+    max-width: 400px;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    max-height: 300px;
+}
+
+/* Style chat messages */
+.chat-message {
+    background-color: #e5e5ea;
+    border-radius: 6px;
+    padding: 10px;
+    margin: 5px 0;
+    clear: both;
+}
+
+/* Style the user's messages */
+.user-message {
+    float: right;
+    background-color: #315FFF;
+    color: #fff;
+}
+
+/* Style the chat input field */
+.chat-input {
+    display: flex;
+    margin-top: 20px;
+}
+
+#user-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+}
+
+#send-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    outline: none;
+}
+.uneven-width-div {
+    width: 100%;
+    height: 50px; 
+    background-color: rgba(65, 81, 225, 0.951); 
+    position: relative;
+    font-weight: px;
+    color:white;
+    padding-left: 5%;
+    margin-bottom: 0;
+    padding-top: .2%;
+}
+
+
+.uneven-width-div::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 70vw solid transparent; 
+    border-right: 10vw solid transparent;
+    border-bottom: 30px solid rgba(255, 255, 255, 0.45); 
+    backdrop-filter: blur(15px);
+    
+    margin-bottom: 0;
+}
+
+#input-section{
+    display: flex;
+    align-items: center;
+    padding: 5rem;
+    margin-bottom: 10px;
+    /* background-color: red; */
+    gap:1rem ;
+    justify-content: center;
+
+    
+}
+
+.micIcon{
+    background: rgb(224,237,255);
+  background: linear-gradient(81deg, rgba(224,237,255,1) 19%, rgba(250,224,255,1) 100%);
+   padding: 2rem 2.5rem;
+   border: none;
+   border-radius: 1.5rem;
+   transition: all 900ms;
+   justify-content: center;
+   align-items: center;
+   display: flex;
+   
+
+  }
+  .micIcon:hover{
+    scale:0.9;
+  }
+  .micIcon i{
+    font-size: 2rem;
+    align-self: center;
+    background: rgb(171,51,255);
+    background: linear-gradient(243deg, rgba(171,51,255,1) 19%, rgba(11,164,255,1) 100%);
+    background: linear-gradient(270deg, rgba(171,51,255,1) 0%, rgba(11,164,255,1) 100%);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+  }
+  .inputBtnChat{
+    display: flex;
+    border: none;
+    width: 100%;
+    border-radius: 2rem;
+    align-content: flex-start;
+    padding-left: 1rem;
+  }
+  .circle{
+    color: #007bff;
+    cursor: pointer;
+  }

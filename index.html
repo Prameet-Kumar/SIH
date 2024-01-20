@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="HomePage.css">
+  <script src="https://kit.fontawesome.com/05d71ec5ea.js" crossorigin="anonymous"></script>
+  
+  <title>AI ChatBot</title>
+</head>
+
+<body>
+
+  
+    <!-- Header -->
+    <header style="position: fixed;z-index: 99;">
+      <nav>
+        <a href="/index.html"> 
+          <div class="navSection1">
+            <!-- Replace "your-link-url.html" with the actual URL you want to link to -->
+              <img
+                  id="logoImg"
+                  src="/resources/images/logo.png"
+                  width="20%"
+                  alt="Jini"
+              />
+          
+          <p>Your Voice, Our Action</p>
+        </div>
+        <div class="navSection2">
+
+          <ul class="navUl">
+            <li><a href="/screens/status/check_status.html">Check Status</a></li>
+            <li><a href="/components/about.html">About us</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <section class="HeroSection">
+      <div>
+        <h1 class="mainHead ">
+          <span class="word"> Words to Solutions</span>
+          <br> How may I help you?
+        </h1>
+      </div>
+      <div class="inputChat">
+        <button type="button" class="micIcon" id="startButton" onclick="startDictation()"> <i class="fa-solid fa-microphone-lines"></i></button>
+        <button type="button" class="micIcon" id="stopButton" style="display: none;"><img src="./resources/images/simple_loading.gif" width="18px" height="22px"/> </button>
+
+        <input type="text" name="s" id="transcript" class="InputBtn" placeholder="Write Anything You Want to Know">
+        <!-- <a href="./screens/chat.html"> -->
+        <button type="button" onclick="gotoChat()" class="AiBtn"><i class="fa-solid fa-star"></i>Start</button>
+      </a>
+      </div>
+      <div class="info">
+        <div class="infocard">
+          <article class="information">
+            <h2 class="title">The only tool you will need to get help in any situation.</h2>
+            <dl class="details">
+              <div>
+                <dt>Total Cases Registered</dt>
+                <dd>1909219</dd>
+              </div>
+              <div>
+                <dt>Total Cases Resolved</dt>
+                <dd>1809242</dd>
+              </div>
+              <div>
+                <dt>Total Cases Pending</dt>
+                <dd>99977</dd>
+              </div>
+            </dl>
+          </article>
+        </div>
+      </div>
+
+    </section>
+
+    <script>
+      function gotoChat() {
+        var inputData = document.getElementById("transcript").value;
+        var encodedData = encodeURIComponent(inputData);
+        window.location.href = "./screens/chat.html?data=" + encodedData;
+      }
+      function startDictation() {
+    if (window.hasOwnProperty('webkitSpeechRecognition')) {
+      var recognition = new webkitSpeechRecognition();
+
+      recognition.continuous = false;
+      recognition.interimResults = false;
+      recognition.lang = 'en-US';
+      // recognition.lang = 'hi-IN';
+      recognition.start();
+
+      recognition.onresult = function (e) {
+        document.getElementById('transcript').value = e.results[0][0].transcript;
+        recognition.stop();
+        document.getElementById('labnol').submit();
+      };
+      recognition.onerror = function (e) {
+        recognition.stop();
+      };
+    }
+  }
+        // Function to start the microphone
+        function startMicrophone() {
+            navigator.mediaDevices.getUserMedia({ audio: true })
+            .then(function(stream) {
+                // You can do something with the microphone stream here
+                console.log("Microphone is active");
+                document.getElementById("startButton").style.display = "none";
+                document.getElementById("stopButton").style.display = "inline";
+            })
+            .catch(function(error) {
+                console.error("Error accessing microphone: " + error);
+            });
+        }
+
+        // Function to stop the microphone
+        function stopMicrophone() {
+            // You can stop the microphone stream here if needed
+            console.log("Microphone is stopped");
+            document.getElementById("startButton").style.display = "inline";
+            document.getElementById("stopButton").style.display = "none";
+        }
+
+        // Add event listeners to the buttons
+        document.getElementById("startButton").addEventListener("click", startMicrophone);
+        document.getElementById("stopButton").addEventListener("click", stopMicrophone);
+    </script>
+
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-columns">
+          <div class="footer-column">
+              <h3 class="footer-heading">Resources</h3>
+              <ul class="footerul">
+                  <li class="footer-item">Desktop Apps</li>
+                  <li class="footer-item">Partners</li>
+                  <li class="footer-item">Experts</li>
+              </ul>
+          </div>
+          <div class="footer-column">
+              <h3 class="footer-heading">Category</h3>
+              <ul class="footerul">
+                  <li class="footer-item">Police Support</li>
+                  <li class="footer-item">Criminal Cases</li>
+                  <li class="footer-item">Roobery</li>
+                  <li class="footer-item">Phone Snatching</li>
+              </ul>
+          </div>
+          <div class="footer-column">
+              <h3 class="footer-heading">Support</h3>
+              <ul class="footerul">
+                  <li class="footer-item">Updates</li>
+                  <li class="footer-item">Community</li>
+                  <li class="footer-item">HelpLine Number</li>
+                  <li class="footer-item">Chat Support 24X7</li>
+              </ul>
+          </div>
+      </div>
+      <div class="social-icons">
+          <a href="#"><i class="fab fa-instagram social-icon"></i></a>
+          <a href="#"><i class="fab fa-linkedin social-icon"></i></a>
+          <a href="#"><i class="fab fa-github social-icon"></i></a>
+          <a href="#"><i class="fab fa-twitter social-icon"></i></a>
+      </div>
+      <div class="copyright">
+          &copy; 2023 Jini. Made with <span style="color: red;">❤</span>by HardPass
+      </div>
+  </footer>
+  
+</body>
+
+</html>

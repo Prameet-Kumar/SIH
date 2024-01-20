@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jini - AI Chatbot</title>
+  <link rel="stylesheet" href="./chat.css">
+   <!-- Link to your CSS file -->
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700,300">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.1.2/css/material-design-iconic-font.min.css">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400&family=Finger+Paint&display=swap">
+  <script src="https://kit.fontawesome.com/05d71ec5ea.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="logo">
+      <img src="/resources/images/logo.png" class="chatLogoImg" alt="Chatbot Logo" class="profile">
+      <h1>Chat with <span class="jini">Jini</span></h1>
+    </div>
+    <div class="chatnav">
+      <ul id="chatnavs">
+        <li><a href="/screens/status/check_status.html">Check Status</a></li>
+        <li><a href="/components/about.html">About us</a></li>
+      </ul>
+    </div>
+
+
+  </header>
+  <!-- <div class="uneven-width-div">
+
+    <span style="font-weight:1;color:white;font-size: 15px;float: right;margin-right: 10%;margin-top: 1%;">We reply
+      immediately</span>
+  </div> -->
+  <div class="card chat">
+    <!-- <div id="header">
+          <h1>AI ChatBot</h1>
+        </div> -->
+    <div id="message-section">
+      <div class="message" id="bot"><span id="bot-response">Hello... I am Jini</span></div>
+    </div>
+
+
+    <div id="input-section">
+      <button type="button" class="micIcon" id="startButton"  onclick="startDictation()"> <i
+          class="fa-solid fa-microphone-lines" id="micoffimg"></i>
+      </button>
+
+      <button type="button" class="micIcon" id="stopButton" style="display: none;">
+        <div class="image-mic"><img
+          src="../resources/images/simple_loading.gif" style="margin: -10px -10px 0 -10px;" width="20px" height="20px" /></div> 
+      </button>
+
+      <input id="input" type="text" placeholder="Type a message" class="inputBtnChat" autocomplete="off" autofocus="autofocus"
+        />
+      <button class="send" onclick="sendMessage()">
+        <div class="circle"><i class="zmdi zmdi-mail-send"
+          ></i>
+        </div>
+      </button>
+    </div>
+  </div>
+  <script src="../script.js"></script>
+  <script>
+
+    function getParameterByName(name, url) {
+      if (!url) url = window.location.href;
+      name = name.replace(/[\[\]]/g, "\\$&");
+      var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+      if (!results) return null;
+      if (!results[2]) return '';
+      return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
+
+    // Get the data parameter from the URL
+    var data = getParameterByName("data");
+
+    // Display the data on the page
+    if (data) {
+      console.log(data);
+      document.getElementById("input").value = data;
+    }
+
+    function startDictation() {
+      if (window.hasOwnProperty('webkitSpeechRecognition')) {
+        var recognition = new webkitSpeechRecognition();
+
+        recognition.continuous = false;
+        recognition.interimResults = false;
+        recognition.lang = 'en-US';
+        // recognition.lang = 'hi-IN';
+        recognition.start();
+
+        recognition.onresult = function (e) {
+          document.getElementById('input').value = e.results[0][0].transcript;
+          recognition.stop();
+          document.getElementById('labnol').submit();
+        };
+        recognition.onerror = function (e) {
+          recognition.stop();
+        };
+      }
+    }
+    // Function to start the microphone
+    function startMicrophone() {
+      navigator.mediaDevices.getUserMedia({ audio: true })
+        .then(function (stream) {
+          // You can do something with the microphone stream here
+          console.log("Microphone is active");
+          document.getElementById("startButton").style.display = "none";
+          document.getElementById("stopButton").style.display = "inline";
+        })
+        .catch(function (error) {
+          console.error("Error accessing microphone: " + error);
+        });
+    }
+
+    // Function to stop the microphone
+    function stopMicrophone() {
+      // You can stop the microphone stream here if needed
+      console.log("Microphone is stopped");
+      document.getElementById("startButton").style.display = "inline";
+      document.getElementById("stopButton").style.display = "none";
+      document.getElementById("micoffimg").style.margin = "-20px";
+    }
+
+    // Add event listeners to the buttons
+    document.getElementById("startButton").addEventListener("click", startMicrophone);
+    document.getElementById("stopButton").addEventListener("click", stopMicrophone);
+  </script>
+</body>
+
+</html>

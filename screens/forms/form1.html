@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="mycss.css" />
+    <script type="text/javascript" src="./myjs.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Register your complaint</title>
+    <link rel="icon" href="./images/reg.png" type="image/x-icon" />
+  </head>
+
+  <body class="myform">
+    <form method="post" enctype="multipart/form-data" class="myf">
+      <h1>Register your complaint!</h1>
+
+      <div
+        class="form-floating mb-3"
+        onclick="myste(); myFunction(this, 'blue')"
+      >
+        <input
+          type="text"
+          class="form-control"
+          id="floatingInput"
+          name="Uname"
+          placeholder="Your name"
+        />
+        <label for="floatingInput">Complainant's Name</label>
+      </div>
+      <div
+        class="form-floating mb-3"
+        onclick="myste(); myFunction(this, 'blue')"
+      >
+        <input
+          type="text"
+          class="form-control"
+          id="floatingInput"
+          name="Uname"
+          placeholder="Your name"
+        />
+        <label for="floatingInput">Mobile Number 1</label>
+      </div>
+      <div
+        class="form-floating mb-3"
+        onclick="myste(); myFunction(this, 'blue')"
+      >
+        <input
+          type="text"
+          class="form-control"
+          id="floatingInput"
+          name="Uname"
+          placeholder="Your name"
+        />
+        <label for="floatingInput">Enter if Dual sim phone</label>
+      </div>
+      <div
+        class="form-floating mb-3"
+        onclick="myste(); myFunction(this, 'blue')"
+      >
+        <input
+          type="text"
+          class="form-control"
+          id="floatingInput"
+          name="Uname"
+          placeholder="Your name"
+        />
+        <label for="floatingInput">IMEI 1</label>
+      </div>
+      <div
+        class="form-floating mb-3"
+        onclick="myste(); myFunction(this, 'blue')"
+      >
+        <input
+          type="text"
+          class="form-control"
+          id="floatingInput"
+          name="Uname"
+          placeholder="Device Brand"
+        />
+        <label for="floatingInput">Device Brand</label>
+      </div>
+      <div
+        class="form-floating mb-3"
+        onclick="myste(); myFunction(this, 'blue')"
+      >
+        <input
+          type="text"
+          class="form-control"
+          id="floatingInput"
+          name="Uname"
+          placeholder="Device Brand"
+        />
+        <label for="floatingInput">Lost place</label>
+      </div>
+      <div
+        class="form-floating mb-3"
+        onclick="myste(); myFunction(this, 'blue')"
+      >
+        <input
+          type="date"
+          class="form-control"
+          id="floatingInput"
+          name="Uname"
+          placeholder="Device Brand"
+        />
+        <label for="floatingInput">Lost Date</label>
+      </div>
+
+      <div
+        class="form-floating mb-3"
+        onclick="myste(); myFunction(this, 'blue')"
+      >
+        <input
+          type="text"
+          inputmode="tel"
+          class="form-control"
+          id="floatingPassword"
+          placeholder="Phone number"
+          name="phonenumber"
+          value=""
+          maxlength="10"
+        />
+        <label for="floatingPassword">Complainant's Phone Number</label>
+      </div>
+      <div
+        class="form-floating mb-3"
+        onclick="myste(); myFunction(this, 'blue')"
+      >
+        <input
+          type="text"
+          class="form-control"
+          id="af"
+          placeholder="text"
+          name="Complainant's Address"
+        />
+        <label for="floatingPassword">Complainant's Address</label>
+      </div>
+      <div
+        class="form-floating mb-3"
+        onclick="myste(); myFunction(this, 'blue')"
+      >
+        <input
+          type="text"
+          class="form-control"
+          id="af"
+          placeholder="text"
+          name="Other details"
+        />
+        <label for="floatingPassword">Other details</label>
+      </div>
+
+      <div class="form-floating mb-3 center" onclick="dis()" id="fiuplod">
+        <button class="btn mybtn box overlay">
+          Upload photo/ Screenshot
+          <input
+            type="file"
+            class="file box"
+            name="file"
+            style="font-size: 160%"
+            onchange="previewImage(this)"
+          />
+        </button>
+      </div>
+
+      <div><br /><br /><br /></div>
+      <div class="form-floating">
+        <div style="font-size: 10px; margin-top: 0px; padding-top: 0px">
+          Only jpg/png files with less than 20KB is supported!
+        </div>
+        <button
+          id="dis"
+          type="button"
+          class="mybtn2"
+          name="submit"
+          onclick="showUniqueReferenceNumber()"
+        >
+          <i class="fa fa-send-o"></i> Register Complaint
+        </button>
+      </div>
+
+      <div class="preview-container">
+        <img id="imagePreview" class="preview-image" src="#" alt="Preview" />
+      </div>
+      <script>
+        function previewImage(input) {
+          var preview = document.getElementById("imagePreview");
+          if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+              preview.src = e.target.result;
+            };
+
+            reader.readAsDataURL(input.files[0]);
+          }
+        }
+        function dis() {
+          // alert("hi");
+          document.getElementById("imagePreview").style.display = "inline";
+        }
+      </script>
+    </form>
+
+    <button id="dis1">
+      <img src="images/pre.png" style="height: 30px; width: 30px;" /> Preview
+    </button>
+  </body>
+</html>

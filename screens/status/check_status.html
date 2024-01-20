@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./check_css.css" />
+    <!-- Add SweetAlert CSS and JS from a CDN -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.3/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.3/dist/sweetalert2.min.js"></script>
+
+    <title>Case Status Tracker</title>
+  </head>
+  <body>
+    <header style="position: fixed; z-index: 99">
+      <nav>
+        <!-- Logo image and Name -->
+        <a href="/index.html"> 
+        <div class="navSection1">
+          <!-- Replace "your-link-url.html" with the actual URL you want to link to -->
+            <img
+                id="logoImg"
+                src="/resources/images/logo.png"
+                width="20%"
+                alt="Jini"
+            />
+        
+          <p>Your Voice, Our Action</p>
+        </div></a>
+        <div class="navSection2">
+          <ul class="navUl">
+            <li><a href="./check_status.html">Check Status</a></li>
+            <li><a href="../../components/about.html">About us</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <section class="HeroSection">
+      <div class="container">
+        <h1>Case Status Tracker</h1>
+        <div class="input-group">
+          <input
+            type="text"
+            id="pnrInput"
+            placeholder="Enter unique reference number"
+          />
+          <button onclick="trackPNR()">Track</button>
+        </div>
+        <div class="status" id="statusDisplay"></div>
+      </div>
+    </section>
+    <script src="check_js.js"></script>
+  </body>
+</html>
